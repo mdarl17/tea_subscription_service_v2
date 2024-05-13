@@ -75,12 +75,12 @@ RSpec for testing
 To get started with this API, follow these steps:
 
 
-Clone the repository:  git clone https://github.com/your-repo.git
+*Clone the repository:*  git clone https://github.com/your-repo.git
 
 
-Install dependencies:  bundle install
+*Install dependencies:*  bundle install
 
-Run the server:  rails server
+*Run the server:*  rails server
 
 
 Contributors
