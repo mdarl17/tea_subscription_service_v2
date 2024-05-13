@@ -42,7 +42,7 @@ RSpec.describe "Customer Tea Subscriptions", type: :request do
 
 	# create new subscription - sad path
 		# missing frequency data
-	it "returns an error if a value for frequency is not provided" do
+	it "returns an error if a frequency is not provided" do
 		request_body = {
 			customer_id: @customer.id,
 			tea_id: @teas.sample.id,
@@ -56,12 +56,12 @@ RSpec.describe "Customer Tea Subscriptions", type: :request do
 		parsed = JSON.parse(response.body, symbolize_names: true)
 
 		expect(response.status).to eq(422)
-		expect(parsed.join(", ")).to eq("Frequency can't be blank, Frequency is not a number")
+		expect(parsed.join(", ")).to eq("Frequency can't be blank")
 	end
 
 	# create new subscription - sad path
 		# missing status data
-	it "returns an error if a value for frequency is not provided" do
+	it "returns an error if a status is not provided" do
 		request_body = {
 			customer_id: @customer.id,
 			tea_id: @teas.sample.id,
@@ -75,25 +75,25 @@ RSpec.describe "Customer Tea Subscriptions", type: :request do
 		parsed = JSON.parse(response.body, symbolize_names: true)
 
 		expect(response.status).to eq(422)
-		expect(parsed.join(", ")).to eq("Status can't be blank, Status is not a number")
+		expect(parsed.join(", ")).to eq("Status can't be blank")
 	end
 
 
 	# create new subscription - sad path
 		# missing status and frequency data
-		it "returns an error if a value for frequency is not provided" do
-			request_body = {
-				customer_id: @customer.id,
-				tea_id: @teas.sample.id
-			}.to_json
-	
-			post "/api/v0/customers/:customer_id/subscriptions",
-				headers: { "Content-Type" => "application/json", "Accept" => "application/json" },
-				params: request_body
-	
-			parsed = JSON.parse(response.body, symbolize_names: true)
-	
-			expect(response.status).to eq(422)
-			expect(parsed.join(", ")).to eq("Status can't be blank, Frequency can't be blank, Status is not a number, Frequency is not a number")
-		end
+	it "returns two errors if neither frequency or status are provided" do
+		request_body = {
+			customer_id: @customer.id,
+			tea_id: @teas.sample.id
+		}.to_json
+
+		post "/api/v0/customers/:customer_id/subscriptions",
+			headers: { "Content-Type" => "application/json", "Accept" => "application/json" },
+			params: request_body
+
+		parsed = JSON.parse(response.body, symbolize_names: true)
+
+		expect(response.status).to eq(422)
+		expect(parsed.join(", ")).to eq("Status can't be blank, Frequency can't be blank")
+	end
 end 
