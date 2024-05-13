@@ -1,4 +1,9 @@
 class Api::V0::CustomerTeasController < ApplicationController
+	def index 
+		subscriptions = Subscription.all
+		render json: subscriptions.map { |sub| SubscriptionSerializer.new(sub) }
+	end
+
 	def create
 		subscription = Subscription.new(customer_tea_params)
 		if subscription.save
