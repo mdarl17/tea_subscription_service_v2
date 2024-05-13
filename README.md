@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tea Subscription API
+Introduction
+Welcome to the Tea Subscription API! This API allows users to manage tea subscriptions for customers. It provides endpoints for creating, updating, and canceling subscriptions, as well as retrieving information about subscriptions.
 
-Things you may want to cover:
+Base URL
+The base URL for this API is https://your-api-base-url.com.
 
-* Ruby version
+Authentication
+Authentication is not required for accessing the endpoints of this API.
 
-* System dependencies
+Endpoints
+1. Retrieve All Subscriptions
+URL: /api/v0/customers/:customer_id/subscriptions
 
-* Configuration
+Method: GET
 
-* Database creation
+Description: Retrieves all active and cancelled subscriptions for a given customer.
 
-* Database initialization
+2. Create New Subscription
+URL: /api/v0/customers/:customer_id/subscriptions
 
-* How to run the test suite
+Method: POST
 
-* Services (job queues, cache servers, search engines, etc.)
+Description: Creates a new subscription for a customer.
 
-* Deployment instructions
+Request Body:
 
-* ...
+```
+{
+  "customer_id": 1,
+  "tea_id": 1,
+  "frequency": 0,
+  "status": 0
+}
+```
+
+3. Cancel Subscription
+URL: /api/v0/customers/:customer_id/subscriptions/:id
+
+Method: PATCH
+
+Description: Cancels a subscription for a customer.
+
+Request Body:
+
+```
+{
+  "customer_id": "ID of the customer",
+  "tea_id": "ID of the tea"
+}
+```
