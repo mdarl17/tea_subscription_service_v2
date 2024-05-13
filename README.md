@@ -66,7 +66,9 @@ $ rspec spec/path_to_test_folder_or_test_filename
 Dependencies
 This API relies on the following dependencies:
 
-Ruby on Rails (version 7.1.3.2)   RSpec for testing
+Ruby on Rails (version 7.1.3.2)
+
+RSpec for testing
 
 
 **Getting Started**
