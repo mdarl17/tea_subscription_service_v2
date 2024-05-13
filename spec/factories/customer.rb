@@ -4,5 +4,6 @@ FactoryBot.define do
 		last_name { Faker::Name.last_name }
 		email { Faker::Internet.email(domain: 'gmail.com') }
 		address { Faker::Address.full_address }
+		api_key { SecureRandom.alphanumeric }
 	end
 end
