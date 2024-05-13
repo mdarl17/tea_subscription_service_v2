@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v0 do
       resources :customers, only: [:create] do
-        resources :customer_teas, only: [:create, :update], path: "subscriptions"
+        resources :customer_teas, only: [:index, :create, :update], path: "subscriptions"
       end
       resources :teas, only: [:create]
     end
