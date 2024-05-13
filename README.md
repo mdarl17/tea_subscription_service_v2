@@ -70,27 +70,17 @@ Ruby on Rails (version 7.1.3.2)
 RSpec for testing
 
 
-Getting Started
-
+**Getting Started**
 
 To get started with this API, follow these steps:
 
 
-Clone the repository: 
+Clone the repository:  git clone https://github.com/your-repo.git
 
 
-git clone https://github.com/your-repo.git
+Install dependencies:  bundle install
 
-
-Install dependencies: 
-
-
-bundle install
-
-Run the server:
-
-
-rails server
+Run the server:  rails server
 
 
 Contributors
