@@ -29,10 +29,10 @@ Request Body:
 
 ```
 {
-  "customer_id": 1,
-  "tea_id": 1,
-  "frequency": 0,
-  "status": 0
+  "customer_id": "ID of the customer",
+  "tea_id": "ID of the tea",
+  "frequency": "Frequency of the subscription",
+  "status": "Status of the subscription"
 }
 ```
 
@@ -51,3 +51,32 @@ Request Body:
   "tea_id": "ID of the tea"
 }
 ```
+
+Testing
+This API comes with automated tests to ensure its functionality. You can run these tests using the following command:
+```
+$ rspec spec
+```
+Tests can be run invidually with the following syntax:
+
+```
+$ rspec spec/path_to_test_folder_or_test_filename
+```
+
+Dependencies
+This API relies on the following dependencies:
+
+Ruby on Rails (version 7.1.3.2)
+RSpec for testing
+
+Getting Started
+To get started with this API, follow these steps:
+
+Clone the repository: git clone https://github.com/your-repo.git
+Install dependencies: bundle install
+Run the server: rails server
+Contributors
+Matt Darlington
+matthewsdarlington@gmail.com
+
+
